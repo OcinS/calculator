@@ -3,17 +3,211 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;1,200&display=swap');
 
 :root {
-    --gameColor: #fed700;
-    --accentColor: #393e41;
-    --backgroundColor: #000000;
-    --whiteColor: #FFFFFF;
+    --calculatorBackgroundColor: black;
+    --numberBackgroundColor: #383838;
+    --numberFontColor: #F0F0F0;
+    --operatorBackgroundColor: #F1D00A;
+    --clearBackgroundColor: #FF3F00;
+    --deleteBackgroundColor: #8E2657;
+    --backgroundColor: #f6f6f6;
 }
 
 * {
-    /* padding: 0;
-    margin: 0; */
-    /* box-sizing: border-box; */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     transition: all .50s ease;
-    font-size: 14px;
+    font-size: 18px;
+}
+
+
+/* Header Styles */
+
+.header {
+    margin-top: 30px;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--deleteBackgroundColor);
+}
+
+
+/* Page Layout Styles */
+
+.container {
+    margin: auto 12%;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+
+/* Display Styles */
+
+.result.display {
+    text-align: right;
+    font-weight: bold;
+}
+
+.encoder.display {
+    text-align: right;
+}
+
+
+/* Button Styles */
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.6;
+}
+
+.number.btn {
+    background-color: var(--numberBackgroundColor);
+    color: var(--numberFontColor);
+    border-radius: 50%;
+}
+
+.operator.btn {
+    background-color: var(--operatorBackgroundColor);
+    color: var(--calculatorBackgroundColor);
+    border-radius: 50%;
+}
+
+
+/* Grid Layout Styles */
+
+.grid-container {
+    border: 1px solid black;
+    display: grid;
+    grid-template-rows: 100px repeat(5, 60px);
+    grid-template-columns: repeat(4, 60px);
+    grid-template-areas: 
+    "display display display display"
+    "clear clear delete delete"
+    "7 8 9 divide"
+    "4 5 6 multip"
+    "1 2 3 minus"
+    "dec 0 equal plus"
+    ;
+    width: fit-content;
+    background-color: var(--calculatorBackgroundColor);
+    border-radius: 20px;
+    padding: 30px;
+    gap: 20px;
+}
+
+.display-container {
+    grid-area: display;
+    background-color: var(--backgroundColor);
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.delete.btn {
+    grid-area: delete;
+    background-color: var(--deleteBackgroundColor);
+    color: var(--numberFontColor);
+    border-radius: 30px;
+}
+
+.clear.btn {
+    grid-area: clear;
+    background-color: var(--clearBackgroundColor);
+    color: var(--numberFontColor);
+    border-radius: 30px;
+}
+
+.number.btn.1 {
+    grid-area: 1;
+}
+
+.number.btn.2 {
+    grid-area: 2;
+}
+
+.number.btn.3 {
+    grid-area: 3;
+}
+
+.number.btn.4 {
+    grid-area: 4;
+}
+
+.number.btn.5 {
+    grid-area: 5;
+}
+
+.number.btn.6 {
+    grid-area: 6;
+}
+
+.number.btn.7 {
+    grid-area: 7;
+}
+
+.number.btn.8 {
+    grid-area: 8;
+}
+
+.number.btn.9 {
+    grid-area: 9;
+}
+
+.number.btn.0 {
+    grid-area: 0;
+}
+
+.number.btn.dec {
+    grid-area: dec;
+    background-color: var(--numberBackgroundColor);
+    color: var(--numberFontColor);
+    border-radius: 50%;
+}
+
+.equal.btn {
+    grid-area: equal;
+    background-color: var(--numberBackgroundColor);
+    color: var(--numberFontColor);
+    border-radius: 50%;
+}
+
+.operator.btn.plus {
+    grid-area: plus;
+}
+
+.operator.btn.minus {
+    grid-area: minus;
+}
+
+.operator.btn.multip {
+    grid-area: multip;
+}
+
+.operator.btn.divide {
+    grid-area: divide;
+}
+
+
+/* Footer Styles */
+
+.footer {
+    margin-bottom: 30px;
+}
+
+.footer p a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--deleteBackgroundColor);
 }
